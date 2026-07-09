@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paloma Barros | Advocacia Especializada em Consumidor e Direito Médico - Feira de Santana</title>
+    <meta name="description" content="Escritório de advocacia Paloma Barros em Feira de Santana, BA. Atendimento especializado em Direito do Consumidor e Direito Médico (planos de saúde, erro médico e negativas).">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Paloma Barros | Advocacia Especializada">
+    <meta property="og:description" content="Protegendo você contra abusos de empresas, planos de saúde e falhas no sistema médico. Atendimento estratégico e humanizado.">
+    <meta property="og:url" content="https://www.seudominio.com.br">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Paloma Barros Advocacia">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Paloma Barros Advocacia - Consumidor e Médico",
+      "url": "https://www.seudominio.com.br",
+      "telephone": "+5575999151187",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Feira de Santana",
+        "addressRegion": "BA",
+        "addressCountry": "BR"
+      },
+      "description": "Advocacia especializada na defesa de pacientes e consumidores contra abusos de planos de saúde, falhas médicas e empresas.",
+      "priceRange": "$$"
+    }
+    </script>
+
+    <style>
+        /* ==========================================================================
+           VARIÁVEIS CSS (Identidade Visual Premium Jurídica)
+           ========================================================================== */
+        :root {
+            --primary: #1e3a5f;       /* Azul Marinho - Autoridade */
+            --primary-light: #2c5385;
+            --accent: #c5a059;        /* Dourado - Excelência */
+            --bg: #f9f9f9;            /* Fundo Claro */
+            --bg-alt: #ffffff;        /* Fundo Alternativo */
+            --text: #333333;          /* Texto Escuro */
+            --text-muted: #555555;    /* Texto Suave */
+
+            --font-title: 'Playfair Display', serif;
+            --font-text: 'Lato', sans-serif;
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-sm: 0 2px 8px rgba(30, 58, 95, 0.06);
+            --shadow-md: 0 4px 20px rgba(30, 58, 95, 0.08);
+            --shadow-lg: 0 10px 40px rgba(30, 58, 95, 0.12);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+        }
+
+        /* ==========================================================================
+           RESET E BASE
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-text);
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-title);
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        /* ==========================================================================
+           COMPONENTES REUTILIZÁVEIS
+           ========================================================================== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            background: var(--accent);
+            color: #fff;
+            font-family: var(--font-text);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #d4ae62;
+            box-shadow: var(--shadow-lg);
+            color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .divider {
+            height: 3px;
+            width: 60px;
+            background-color: var(--accent);
+            margin: 0 auto 20px auto;
+        }
+
+        /* Animação Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           HEADER / NAVEGAÇÃO
+           ========================================================================== */
+        header {
+            background-color: var(--bg-alt);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo span {
+            font-family: var(--font-text);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ==========================================================================
+           HERO SECTION (Layout D - Sóbrio e Técnico)
+           ========================================================================== */
+        .hero {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 180px 0 100px 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(30,58,95,0.95) 0%, rgba(20,40,70,0.98) 100%),
+                        url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            color: #fff;
+            font-size: 3.2rem;
+            margin-bottom: 24px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #e0e6ed;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .hero-bullets {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .hero-bullets li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            color: #fff;
+        }
+
+        .hero-bullets li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .hero-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            border-top: 4px solid var(--accent);
+        }
+
+        .hero-form h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .hero-form p {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-text);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           ÁREAS DE ATUAÇÃO (Foco Médico e Consumidor)
+           ========================================================================== */
+        .areas {
+            background-color: var(--bg-alt);
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .area-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--radius-sm);
+            border: 1px solid #eee;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .area-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .area-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .area-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .area-card ul {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 16px;
+        }
+
+        .area-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .area-card ul li::before {
+            content: '•';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* ==========================================================================
+           COMO FUNCIONA (Timeline / Passos)
+           ========================================================================== */
+        .how-it-works {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .how-it-works .section-title h2 {
+            color: #fff;
+        }
+
+        .how-it-works .section-title p {
+            color: #e0e6ed;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent);
+            color: #fff;
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 24px auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .step p {
+            color: #e0e6ed;
+            font-size: 0.95rem;
+        }
+
+        /* Linha conectora no desktop */
+        @media (min-width: 900px) {
+            .step:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 30px;
+                left: 50%;
+                width: 100%;
+                height: 2px;
+                background-color: rgba(197, 160, 89, 0.3);
+                z-index: 1;
+            }
+        }
+
+        /* ==========================================================================
+           SOBRE A ADVOGADA
+           ========================================================================== */
+        .about {
+            background-color: var(--bg);
+        }
+
+        .about .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+        }
+
+        .about-img img {
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 4px solid var(--accent);
+            border-radius: var(--radius-sm);
+            z-index: -1;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .about-content p {
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+        }
+
+        /* ==========================================================================
+           WHATSAPP FLOAT COM LABEL
+           ========================================================================== */
+        .wa-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            height: 52px;
+            border-radius: 50px;
+            background: #25d366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 20px;
+            font-family: var(--font-text);
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+            z-index: 1000;
+            animation: wa-pulse 2.5s infinite;
+            transition: var(--transition);
+        }
+
+        .wa-float:hover {
+            transform: translateY(-3px) scale(1.02);
+            color: #fff;
+        }
+
+        @keyframes wa-pulse {
+            0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 6px 30px rgba(37,211,102,0.7); }
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: #112238;
+            color: #a0aec0;
+            padding: 60px 0 20px 0;
+            text-align: center;
+        }
+
+        .footer-info {
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================================
+           RESPONSIVIDADE (MOBILE)
+           ========================================================================== */
+        @media (max-width: 900px) {
+            .hero .container, .about .container {
+                grid-template-columns: 1fr;
+            }
+            .timeline {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .hero {
+                padding: 140px 0 80px 0;
+            }
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                Paloma Barros
+                <span>Advocacia Especializada</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#atuacao">Especialidades</a></li>
+                <li><a href="#metodo">Como Funciona</a></li>
+                <li><a href="#sobre">A Advogada</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <h1>Seu direito à saúde e ao respeito como consumidor é inegociável.</h1>
+                <p>Especialista em combater abusos de planos de saúde, defender vítimas de erro médico e proteger consumidores contra práticas arbitrárias de grandes empresas em Feira de Santana e região.</p>
+
+                <ul class="hero-bullets">
+                    <li>Liminares de urgência contra planos de saúde</li>
+                    <li>Indenizações por falhas na prestação de serviços</li>
+                    <li>Atendimento presencial (Feira de Santana) e online para todo Brasil</li>
+                </ul>
+
+                <a href="https://wa.me/5575999151187?text=Olá,%20Dra.%20Paloma.%20Preciso%20de%20ajuda%20urgente%20no%20meu%20caso." target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    Analisar Meu Caso Agora
+                </a>
+            </div>
+
+            <div class="hero-form reveal" style="transition-delay: 0.2s;">
+                <h3>Agende uma Consulta</h3>
+                <p>Retornamos o contato com agilidade, pois sabemos que sua saúde não pode esperar.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="nome" class="form-control" placeholder="Seu Nome Completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="telefone" class="form-control" placeholder="Seu WhatsApp" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="assunto" class="form-control" required>
+                            <option value="" disabled selected>Qual o problema enfrentado?</option>
+                            <option value="Negativa do Plano de Saúde">Negativa do Plano de Saúde / SUS</option>
+                            <option value="Erro Médico">Suspeita de Erro Médico / Odontológico</option>
+                            <option value="Problemas do Consumidor">Problemas com Bancos / Empresas (Consumidor)</option>
+                            <option value="Outro assunto">Outro assunto</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Solicitar Contato Imediato</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="atuacao" class="areas section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <div class="divider"></div>
+                <h2>Especialidades do Escritório</h2>
+                <p>Nossa atuação é profundamente focada e técnica. Lutamos para restabelecer a justiça em situações onde a assimetria entre as partes é grande (Paciente x Plano de Saúde / Consumidor x Grandes Corporações).</p>
+            </div>
+
+            <div class="areas-grid">
+
+                <div class="area-card reveal">
+                    <div class="area-icon">⚕️</div>
+                    <h3>Direito Médico e da Saúde</h3>
+                    <p>Atuação enérgica na defesa dos direitos dos pacientes, buscando a garantia e o respeito à vida e integridade.</p>
+                    <ul>
+                        <li>Liminares para liberação de cirurgias, exames e tratamentos</li>
+                        <li>Fornecimento de medicamentos de alto custo (Plano ou SUS)</li>
+                        <li>Cobertura de Home Care (Internação Domiciliar)</li>
+                        <li>Ações Indenizatórias por Erro Médico ou Odontológico</li>
+                        <li>Reajustes abusivos de mensalidade de planos</li>
+                    </ul>
+                </div>
+
+                <div class="area-card reveal" style="transition-delay: 0.1s;">
+                    <div class="area-icon">⚖️</div>
+                    <h3>Direito do Consumidor</h3>
+                    <p>Proteção integral contra práticas comerciais abusivas, falhas na prestação de serviço e danos ao patrimônio do cliente.</p>
+                    <ul>
+                        <li>Fraudes bancárias, Pix e cartões clonados</li>
+                        <li>Inscrição indevida no SPC/Serasa (Nome Negativado)</li>
+                        <li>Problemas com companhias aéreas (Voo cancelado, bagagem)</li>
+                        <li>Compras online não entregues ou com defeito</li>
+                        <li>Superendividamento e renegociação de dívidas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metodo" class="how-it-works section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <div class="divider"></div>
+                <h2>Nosso Método de Trabalho</h2>
+                <p>Quando envolve a sua saúde e seus direitos, burocracia não tem espaço. Nosso foco é resolver.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="step reveal">
+                    <div class="step-number">1</div>
+                    <h3>Escuta e Triagem</h3>
+                    <p>Agendamos um atendimento cuidadoso para entender seu cenário, ouvir suas dores e analisar a documentação preliminar (laudos, contratos, recusas).</p>
+                </div>
+                <div class="step reveal" style="transition-delay: 0.2s;">
+                    <div class="step-number">2</div>
+                    <h3>Estratégia Técnica</h3>
+                    <p>Estruturamos a melhor tese legal. Em casos médicos urgentes, preparamos de imediato os pedidos de liminares para o juízo.</p>
+                </div>
+                <div class="step reveal" style="transition-delay: 0.4s;">
+                    <div class="step-number">3</div>
+                    <h3>Ação e Acompanhamento</h3>
+                    <p>Entramos com as medidas judiciais ou extrajudiciais cabíveis, mantendo você integralmente informado sobre o andamento e decisões do seu processo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="about section-padding">
+        <div class="container">
+            <div class="about-img reveal">
+                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80" alt="Dra. Paloma Barros" loading="lazy" width="800" height="600">
+            </div>
+            <div class="about-content reveal" style="transition-delay: 0.2s;">
+                <div class="divider" style="margin-left: 0;"></div>
+                <h2>Paloma Barros</h2>
+                <h4 style="margin-bottom: 24px; color: var(--accent);">Advogada Especialista — Feira de Santana, BA</h4>
+
+                <p>Seja lutando contra a negativa fria de um plano de saúde ou contra os abusos de um banco, minha missão diária é reequilibrar a balança da justiça a seu favor.</p>
+                <p>Atuo no **Direito Médico** e **Direito do Consumidor** com profundo rigor técnico e empatia. Entendo que por trás de cada negativa de cirurgia ou fraude bancária existe uma vida aflita aguardando solução. Meu compromisso é agir com transparência, urgência e combatividade para defender o que é seu por direito.</p>
+
+                <a href="https://www.instagram.com/apalomabarros/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    Acompanhe conteúdos de seus direitos no Instagram (@apalomabarros)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-info">
+                <p><strong>Paloma Barros | Advocacia e Consultoria Jurídica</strong></p>
+                <p>📍 Feira de Santana - BA | Atendimento Online em Todo o Brasil</p>
+                <p>📞 WhatsApp: (75) 99915-1187</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paloma Barros. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5575999151187?text=Olá,%20Dra.%20Paloma.%20Vim%20pelo%20site%20e%20gostaria%20de%20avaliar%20meu%20caso." target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Falar no WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        Fale Agora
+    </a>
+
+    <script>
+        // Intercepta o formulário e envia para o WhatsApp
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const assunto = document.getElementById('assunto').value;
+
+            const texto = `Olá, Dra. Paloma! Meu nome é ${nome} e gostaria de uma orientação profissional sobre: ${assunto}.`;
+            const url = `https://wa.me/5575999151187?text=${encodeURIComponent(texto)}`;
+
+            window.open(url, '_blank', 'noopener,noreferrer');
+        });
+
+        // Scroll Reveal Animation (IntersectionObserver nativo)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
