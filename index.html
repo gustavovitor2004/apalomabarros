@@ -36,6 +36,64 @@
     }
     </script>
 
+    <!-- FAQ Schema (JSON-LD) para rich snippets do Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O plano de saúde negou minha cirurgia. O que fazer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Guarde a negativa por escrito (ou grave o protocolo) e procure um advogado imediatamente. Na maioria dos casos é possível obter uma liminar em 24 a 72 horas obrigando o plano a autorizar o procedimento, especialmente quando há prescrição médica e urgência comprovada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto tempo demora uma liminar contra plano de saúde?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Em casos urgentes com documentação médica completa, liminares costumam ser analisadas pela Justiça em 24 a 72 horas. Cirurgias oncológicas, UTI, home care e medicamentos de alto custo tendem a ter decisão ainda mais rápida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como identificar um erro médico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Erro médico se caracteriza por negligência, imprudência ou imperícia do profissional que resulta em dano ao paciente. É essencial reunir prontuário, exames, laudos e receitas. Uma perícia técnica indicará se houve conduta inadequada e nexo causal com o dano sofrido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fui vítima de fraude no Pix ou cartão clonado. Tenho direito a receber de volta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. O banco tem responsabilidade objetiva pela segurança das operações (Súmula 479 do STJ). Registre B.O., conteste imediatamente no banco e, se houver recusa ou demora, é possível ingressar com ação para restituição do valor e indenização por danos morais."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Meu nome foi negativado indevidamente no SPC/Serasa. O que posso fazer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "É possível pedir a retirada imediata do nome dos cadastros de inadimplentes e indenização por danos morais, que costuma variar entre R$ 5.000 e R$ 15.000 conforme o caso, desde que você não tenha outras negativações legítimas anteriores."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso ir presencialmente ao escritório em Feira de Santana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Realizamos atendimento presencial em Feira de Santana/BA e também 100% online por videochamada e WhatsApp para clientes de todo o Brasil, com envio digital de documentos e assinatura eletrônica."
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
         /* ==========================================================================
            VARIÁVEIS CSS (Identidade Visual Premium Jurídica)
@@ -486,24 +544,18 @@
         }
 
         .about-img {
-            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         .about-img img {
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-img::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
             width: 100%;
-            height: 100%;
-            border: 4px solid var(--accent);
-            border-radius: var(--radius-sm);
-            z-index: -1;
+            max-width: 420px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(30, 58, 95, 0.15);
         }
 
         .about-content h2 {
@@ -610,9 +662,214 @@
                 display: none;
             }
         }
+
+        @media (max-width: 768px) {
+            .about-img {
+                justify-content: center;
+            }
+            .about-img img {
+                width: 80%;
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
+    <style>
+
+        /* ==========================================================================
+           BARRA DE MÉTRICAS (Social Proof)
+           ========================================================================== */
+        .metrics {
+            background: var(--bg-alt);
+            border-bottom: 1px solid #eee;
+            padding: 40px 0;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+        .metric-item {
+            padding: 12px;
+            border-right: 1px solid #eee;
+        }
+        .metric-item:last-child { border-right: none; }
+        .metric-value {
+            font-family: var(--font-title);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+        .metric-value span { color: var(--accent); }
+        .metric-label {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        /* ==========================================================================
+           DEPOIMENTOS (Testimonials)
+           ========================================================================== */
+        .testimonials { background-color: var(--bg); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: #fff;
+            padding: 32px 28px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .testimonial-stars {
+            color: var(--accent);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 16px;
+        }
+        .testimonial-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-title);
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+        .testimonial-role {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           FAQ
+           ========================================================================== */
+        .faq { background-color: var(--bg-alt); }
+        .faq-groups {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .faq-group h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            border-left: 4px solid var(--accent);
+            padding-left: 14px;
+            margin-bottom: 20px;
+        }
+        .faq-item {
+            background: var(--bg);
+            border: 1px solid #eee;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .faq-item[open] { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+        .faq-item summary {
+            padding: 18px 22px;
+            font-weight: 700;
+            color: var(--primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-size: 1rem;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+';
+            color: var(--accent);
+            font-size: 1.6rem;
+            font-weight: 400;
+            transition: transform 0.3s ease;
+            line-height: 1;
+        }
+        .faq-item[open] summary::after { transform: rotate(45deg); }
+        .faq-item p {
+            padding: 0 22px 20px 22px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        /* ==========================================================================
+           RESPONSIVIDADE MÓVEL DAS NOVAS SEÇÕES
+           ========================================================================== */
+        @media (max-width: 900px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .metric-item:nth-child(2) { border-right: none; }
+            .metric-value { font-size: 2.1rem; }
+            .faq-groups { grid-template-columns: 1fr; gap: 30px; }
+
+            /* Carrossel horizontal dos depoimentos */
+            .testimonials-grid {
+                grid-template-columns: none;
+                grid-auto-flow: column;
+                grid-auto-columns: 85%;
+                gap: 16px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding: 8px 4px 24px 4px;
+                margin: 0 -24px;
+                padding-left: 24px;
+                padding-right: 24px;
+                scrollbar-width: thin;
+            }
+            .testimonial-card {
+                scroll-snap-align: start;
+            }
+        }
+        @media (max-width: 560px) {
+            .metrics-grid { grid-template-columns: 1fr 1fr; }
+            .testimonials-grid { grid-auto-columns: 90%; }
+        }
+    </style>
 
     <header>
         <div class="container nav-container">
@@ -672,6 +929,30 @@
         </div>
     </section>
 
+    <!-- BARRA DE MÉTRICAS (Social Proof abaixo do Hero) -->
+    <section class="metrics" aria-label="Números de impacto do escritório">
+        <div class="container">
+            <div class="metrics-grid">
+                <div class="metric-item reveal">
+                    <div class="metric-value">+<span>10</span></div>
+                    <div class="metric-label">Anos de Experiência</div>
+                </div>
+                <div class="metric-item reveal" style="transition-delay: 0.1s;">
+                    <div class="metric-value">+<span>500</span></div>
+                    <div class="metric-label">Casos Atendidos</div>
+                </div>
+                <div class="metric-item reveal" style="transition-delay: 0.2s;">
+                    <div class="metric-value"><span>95</span>%</div>
+                    <div class="metric-label">Liminares Deferidas</div>
+                </div>
+                <div class="metric-item reveal" style="transition-delay: 0.3s;">
+                    <div class="metric-value"><span>24</span>h</div>
+                    <div class="metric-label">Resposta ao Cliente</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="atuacao" class="areas section-padding">
         <div class="container">
             <div class="section-title reveal">
@@ -711,6 +992,52 @@
         </div>
     </section>
 
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="testimonials section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <div class="divider"></div>
+                <h2>O que dizem nossos clientes</h2>
+                <p>Relatos reais de pessoas que reconquistaram seus direitos com atendimento técnico e humanizado.</p>
+            </div>
+            <div class="testimonials-grid">
+                <article class="testimonial-card reveal">
+                    <div class="testimonial-stars" aria-label="Avaliação 5 de 5">★★★★★</div>
+                    <p class="testimonial-text">"Meu plano negou a cirurgia da minha filha alegando carência. Em menos de 48 horas a Dra. Paloma conseguiu a liminar e a cirurgia foi realizada. Nunca vou esquecer o cuidado e a rapidez."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" aria-hidden="true">MR</div>
+                        <div>
+                            <div class="testimonial-name">Mariana R.</div>
+                            <div class="testimonial-role">Feira de Santana, BA</div>
+                        </div>
+                    </div>
+                </article>
+                <article class="testimonial-card reveal" style="transition-delay: 0.1s;">
+                    <div class="testimonial-stars" aria-label="Avaliação 5 de 5">★★★★★</div>
+                    <p class="testimonial-text">"Fui vítima de um Pix fraudulento de R$ 8 mil e o banco se recusava a devolver. A Dra. Paloma entrou com a ação, ganhamos o valor de volta e ainda uma indenização por danos morais."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" aria-hidden="true">CS</div>
+                        <div>
+                            <div class="testimonial-name">Carlos S.</div>
+                            <div class="testimonial-role">Salvador, BA</div>
+                        </div>
+                    </div>
+                </article>
+                <article class="testimonial-card reveal" style="transition-delay: 0.2s;">
+                    <div class="testimonial-stars" aria-label="Avaliação 5 de 5">★★★★★</div>
+                    <p class="testimonial-text">"Minha mãe precisava de home care e o plano insistia em negar. A Dra. explicou tudo com clareza, conseguiu a autorização judicial e acompanhou o caso até o fim. Profissional atenciosa e combativa."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" aria-hidden="true">JL</div>
+                        <div>
+                            <div class="testimonial-name">Juliana L.</div>
+                            <div class="testimonial-role">Atendimento Online</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <section id="metodo" class="how-it-works section-padding">
         <div class="container">
             <div class="section-title reveal">
@@ -742,7 +1069,7 @@
     <section id="sobre" class="about section-padding">
         <div class="container">
             <div class="about-img reveal">
-                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80" alt="Dra. Paloma Barros" loading="lazy" width="800" height="600">
+                <img src="assets/palomabarrosadv.png" alt="Dra. Paloma Barros — Advogada especialista em Direito do Consumidor e Direito Médico" loading="lazy" width="1193" height="1824">
             </div>
             <div class="about-content reveal" style="transition-delay: 0.2s;">
                 <div class="divider" style="margin-left: 0;"></div>
@@ -756,6 +1083,49 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     Acompanhe conteúdos de seus direitos no Instagram (@apalomabarros)
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <div class="divider"></div>
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas principais dúvidas sobre Direito Médico e Direito do Consumidor antes mesmo do primeiro contato.</p>
+            </div>
+            <div class="faq-groups">
+                <div class="faq-group reveal">
+                    <h3>Direito Médico e Planos de Saúde</h3>
+                    <details class="faq-item">
+                        <summary>O plano de saúde negou minha cirurgia. O que fazer?</summary>
+                        <p>Guarde a negativa por escrito (ou grave o protocolo) e procure um advogado imediatamente. Na maioria dos casos é possível obter uma liminar em 24 a 72 horas obrigando o plano a autorizar o procedimento, especialmente quando há prescrição médica e urgência comprovada.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Quanto tempo demora uma liminar contra plano de saúde?</summary>
+                        <p>Em casos urgentes com documentação médica completa, liminares costumam ser analisadas pela Justiça em 24 a 72 horas. Cirurgias oncológicas, UTI, home care e medicamentos de alto custo tendem a ter decisão ainda mais rápida.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Como identificar um erro médico?</summary>
+                        <p>Erro médico se caracteriza por negligência, imprudência ou imperícia do profissional que resulta em dano ao paciente. É essencial reunir prontuário, exames, laudos e receitas. Uma perícia técnica indicará se houve conduta inadequada e nexo causal com o dano sofrido.</p>
+                    </details>
+                </div>
+                <div class="faq-group reveal" style="transition-delay: 0.15s;">
+                    <h3>Direito do Consumidor</h3>
+                    <details class="faq-item">
+                        <summary>Fui vítima de fraude no Pix ou cartão clonado. Tenho direito a receber de volta?</summary>
+                        <p>Sim. O banco tem responsabilidade objetiva pela segurança das operações (Súmula 479 do STJ). Registre B.O., conteste imediatamente no banco e, se houver recusa ou demora, é possível ingressar com ação para restituição do valor e indenização por danos morais.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Meu nome foi negativado indevidamente no SPC/Serasa. O que posso fazer?</summary>
+                        <p>É possível pedir a retirada imediata do nome dos cadastros de inadimplentes e indenização por danos morais, que costuma variar entre R$ 5.000 e R$ 15.000 conforme o caso, desde que você não tenha outras negativações legítimas anteriores.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Preciso ir presencialmente ao escritório em Feira de Santana?</summary>
+                        <p>Não. Realizamos atendimento presencial em Feira de Santana/BA e também 100% online por videochamada e WhatsApp para clientes de todo o Brasil, com envio digital de documentos e assinatura eletrônica.</p>
+                    </details>
+                </div>
             </div>
         </div>
     </section>
