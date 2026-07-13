@@ -142,6 +142,7 @@
 
         h1, h2, h3, h4 {
             font-family: var(--font-title);
+            font-weight: 600;
             color: var(--primary);
             line-height: 1.2;
         }
@@ -679,42 +680,6 @@
     <style>
 
         /* ==========================================================================
-           BARRA DE MÉTRICAS (Social Proof)
-           ========================================================================== */
-        .metrics {
-            background: var(--bg-alt);
-            border-bottom: 1px solid #eee;
-            padding: 40px 0;
-        }
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            text-align: center;
-        }
-        .metric-item {
-            padding: 12px;
-            border-right: 1px solid #eee;
-        }
-        .metric-item:last-child { border-right: none; }
-        .metric-value {
-            font-family: var(--font-title);
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.1;
-        }
-        .metric-value span { color: var(--accent); }
-        .metric-label {
-            margin-top: 8px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            font-weight: 700;
-        }
-
-        /* ==========================================================================
            DEPOIMENTOS (Testimonials)
            ========================================================================== */
         .testimonials { background-color: var(--bg); }
@@ -839,12 +804,6 @@
            RESPONSIVIDADE MÓVEL DAS NOVAS SEÇÕES
            ========================================================================== */
         @media (max-width: 900px) {
-            .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            .metric-item:nth-child(2) { border-right: none; }
-            .metric-value { font-size: 2.1rem; }
             .faq-groups { grid-template-columns: 1fr; gap: 30px; }
 
             /* Carrossel horizontal dos depoimentos */
@@ -867,7 +826,6 @@
             }
         }
         @media (max-width: 560px) {
-            .metrics-grid { grid-template-columns: 1fr 1fr; }
             .testimonials-grid { grid-auto-columns: 90%; }
         }
     </style>
@@ -926,30 +884,6 @@
                     </div>
                     <button type="submit" class="btn-primary btn-full">Solicitar Contato Imediato</button>
                 </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- BARRA DE MÉTRICAS (Social Proof abaixo do Hero) -->
-    <section class="metrics" aria-label="Números de impacto do escritório">
-        <div class="container">
-            <div class="metrics-grid">
-                <div class="metric-item reveal">
-                    <div class="metric-value">+<span>10</span></div>
-                    <div class="metric-label">Anos de Experiência</div>
-                </div>
-                <div class="metric-item reveal" style="transition-delay: 0.1s;">
-                    <div class="metric-value">+<span>500</span></div>
-                    <div class="metric-label">Casos Atendidos</div>
-                </div>
-                <div class="metric-item reveal" style="transition-delay: 0.2s;">
-                    <div class="metric-value"><span>95</span>%</div>
-                    <div class="metric-label">Liminares Deferidas</div>
-                </div>
-                <div class="metric-item reveal" style="transition-delay: 0.3s;">
-                    <div class="metric-value"><span>24</span>h</div>
-                    <div class="metric-label">Resposta ao Cliente</div>
-                </div>
             </div>
         </div>
     </section>
