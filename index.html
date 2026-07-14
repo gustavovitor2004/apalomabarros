@@ -542,74 +542,72 @@
             display: block;
         }
 
-        .about-img {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
-        .about-img img {
-            width: 100%;
-            max-width: 420px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 12px 32px rgba(30, 58, 95, 0.15);
-        }
-
-        /* HOVER REVEAL — new: wrapper holds the photo + the overlay text panel */
+        /* HOVER SLIDE ANIMATION — new: wrapper — photo centered by default, overflow hidden for the slide effect */
         .advogada-wrapper {
             position: relative;
             display: flex;
-            justify-content: flex-start;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
             overflow: hidden;
-            border-radius: 12px;
         }
 
-        /* HOVER REVEAL — new: photo scales up slightly on hover */
-        .advogada-wrapper .advogada-foto img {
-            transition: transform 0.4s ease;
+        /* HOVER SLIDE ANIMATION — new: photo, centered by default */
+        .advogada-foto {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(0);
         }
 
-        .advogada-wrapper:hover .advogada-foto img {
-            transform: scale(1.03);
+        .advogada-foto img {
+            width: 380px;
+            max-width: 380px;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+            box-shadow: 0 12px 32px rgba(30, 58, 95, 0.15);
         }
 
-        /* HOVER REVEAL — new: frosted glass text panel, hidden by default */
+        /* HOVER SLIDE ANIMATION — new: photo slides left on hover */
+        .advogada-wrapper:hover .advogada-foto {
+            transform: translateX(-220px);
+        }
+
+        /* HOVER SLIDE ANIMATION — new: text panel, hidden behind the photo by default */
         .advogada-texto {
             position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: min(320px, 82%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 32px 28px;
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
-            border-radius: 0 12px 12px 0;
+            left: 50%;
+            top: 50%;
+            transform: translate(-10%, -50%) scale(0.95);
+            z-index: 1;
             opacity: 0;
-            transform: translateX(30px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
+            width: 100%;
+            max-width: 460px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 40px 44px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.10);
+            border-left: 3px solid var(--accent);
+            transition: opacity 0.5s ease 0.15s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
             pointer-events: none;
         }
 
-        /* HOVER REVEAL — new: reveal the panel when hovering anywhere on the wrapper */
+        /* HOVER SLIDE ANIMATION — new: text panel emerges from behind the photo, sliding right, with a short delay so it feels like it follows the photo */
         .advogada-wrapper:hover .advogada-texto {
+            transform: translate(20%, -50%) scale(1);
             opacity: 1;
-            transform: translateX(0);
             pointer-events: auto;
         }
 
-        .about-content h2 {
+        .advogada-texto h2 {
             font-size: 2.5rem;
             margin-bottom: 12px;
         }
 
-        .about-content p {
+        .advogada-texto p {
             margin-bottom: 16px;
             font-size: 1.05rem;
             color: var(--text-muted);
@@ -709,63 +707,31 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .about-img {
-                justify-content: center;
+        /* HOVER SLIDE ANIMATION — new: mobile/touch fallback — no animation, photo + text always visible, stacked */
+        @media (max-width: 768px), (hover: none) {
+            .advogada-wrapper {
+                flex-direction: column;
+                min-height: auto;
+                overflow: visible;
             }
-            .about-img img {
-                width: 80%;
+            .advogada-foto {
+                transform: none !important;
+                transition: none !important;
+            }
+            .advogada-foto img {
+                width: 100%;
+                max-width: 340px;
+                margin: 0 auto;
+            }
+            .advogada-texto {
+                position: static;
+                width: 100%;
                 max-width: 100%;
-            }
-
-            /* HOVER REVEAL — new: stacked, always-visible fallback for small screens */
-            .advogada-wrapper {
-                flex-direction: column;
-                overflow: visible;
-            }
-            .advogada-texto {
-                position: static;
-                width: 100%;
-                height: auto;
-                margin-top: 24px;
-                padding: 0;
-                background: transparent;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                box-shadow: none;
-                border-radius: 0;
-                opacity: 1;
-                transform: none;
-                pointer-events: auto;
-            }
-            .advogada-wrapper:hover .advogada-foto img {
-                transform: none;
-            }
-        }
-
-        /* HOVER REVEAL — new: touch devices have no hover, always show the text panel */
-        @media (hover: none) {
-            .advogada-wrapper {
-                flex-direction: column;
-                overflow: visible;
-            }
-            .advogada-texto {
-                position: static;
-                width: 100%;
-                height: auto;
-                margin-top: 24px;
-                padding: 0;
-                background: transparent;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                box-shadow: none;
-                border-radius: 0;
-                opacity: 1;
-                transform: none;
-                pointer-events: auto;
-            }
-            .advogada-wrapper:hover .advogada-foto img {
-                transform: none;
+                transform: none !important;
+                opacity: 1 !important;
+                pointer-events: auto !important;
+                transition: none !important;
+                margin-top: 32px;
             }
         }
     </style>
@@ -1097,18 +1063,18 @@
 
     <section id="sobre" class="about section-padding">
         <div class="container">
-            <!-- HOVER REVEAL — new: wrapper groups photo + text panel so hover can be handled as one unit -->
+            <!-- HOVER ANIMATION: restructured — wrapper groups photo + text panel so hover can be handled as one unit -->
             <div class="advogada-wrapper reveal">
-                <div class="about-img advogada-foto">
+                <div class="advogada-foto">
                     <img src="assets/palomabarrosadv.png" alt="Dra. Paloma Barros — Advogada especialista em Direito do Consumidor e Direito Médico" loading="lazy" width="1193" height="1824">
                 </div>
-                <div class="about-content advogada-texto">
+                <div class="advogada-texto">
                     <div class="divider" style="margin-left: 0;"></div>
                     <h2>Paloma Barros</h2>
                     <h4 style="margin-bottom: 24px; color: var(--accent);">Advogada Especialista — Feira de Santana, BA</h4>
 
                     <p>Seja lutando contra a negativa fria de um plano de saúde ou contra os abusos de um banco, minha missão diária é reequilibrar a balança da justiça a seu favor.</p>
-                    <p>Atuo no **Direito Médico** e **Direito do Consumidor** com profundo rigor técnico e empatia. Entendo que por trás de cada negativa de cirurgia ou fraude bancária existe uma vida aflita aguardando solução. Meu compromisso é agir com transparência, urgência e combatividade para defender o que é seu por direito.</p>
+                    <p>Atuo no <strong>Direito Médico</strong> e <strong>Direito do Consumidor</strong> com profundo rigor técnico e empatia. Entendo que por trás de cada negativa de cirurgia ou fraude bancária existe uma vida aflita aguardando solução. Meu compromisso é agir com transparência, urgência e combatividade para defender o que é seu por direito.</p>
 
                     <a href="https://www.instagram.com/apalomabarros/" target="_blank" rel="noopener noreferrer" class="social-link">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -1116,7 +1082,7 @@
                     </a>
                 </div>
             </div>
-            <!-- HOVER REVEAL — new -->
+            <!-- HOVER ANIMATION: restructured -->
         </div>
     </section>
 
