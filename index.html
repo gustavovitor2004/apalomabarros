@@ -10,7 +10,8 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Dra. Paloma Almeida | Advogada Especialista em Direito Médico">
     <meta property="og:description" content="Assessoria jurídica preventiva e contenciosa para profissionais e instituições de saúde: contratos, LGPD, sindicâncias e defesa ético-disciplinar.">
-    <meta property="og:url" content="https://advpalomabarros.vercel.app/">
+    <!-- AUDIT FIX: domínio canônico atualizado para o endereço real do site publicado -->
+    <meta property="og:url" content="https://advpalomaalmeida.vercel.app/">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="Dra. Paloma Almeida — Assessoria e Consultoria Jurídica">
     <meta name="twitter:card" content="summary_large_image">
@@ -31,7 +32,7 @@
       "@context": "https://schema.org",
       "@type": "LegalService",
       "name": "Dra Paloma Almeida — Assessoria e Consultoria Jurídica",
-      "url": "https://advpalomabarros.vercel.app/",
+      "url": "https://advpalomaalmeida.vercel.app/",
       "telephone": "+5575999151187",
       "email": "adv.palmeida@gmail.com",
       "address": {
@@ -46,6 +47,7 @@
     </script>
 
     <!-- FAQ Schema (JSON-LD) para rich snippets do Google -->
+    <!-- AUDIT REMOVED: perguntas de Pix/SPC-Serasa (Direito do Consumidor) tiradas do schema — especialidade não consta no currículo -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,22 +75,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Erro médico se caracteriza por negligência, imprudência ou imperícia do profissional que resulta em dano ao paciente. É essencial reunir prontuário, exames, laudos e receitas. Uma perícia técnica indicará se houve conduta inadequada e nexo causal com o dano sofrido."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Fui vítima de fraude no Pix ou cartão clonado. Tenho direito a receber de volta?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim. O banco tem responsabilidade objetiva pela segurança das operações (Súmula 479 do STJ). Registre B.O., conteste imediatamente no banco e, se houver recusa ou demora, é possível ingressar com ação para restituição do valor e indenização por danos morais."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Meu nome foi negativado indevidamente no SPC/Serasa. O que posso fazer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "É possível pedir a retirada imediata do nome dos cadastros de inadimplentes e indenização por danos morais, que costuma variar entre R$ 5.000 e R$ 15.000 conforme o caso, desde que você não tenha outras negativações legítimas anteriores."
           }
         },
         {
@@ -860,17 +846,16 @@
 
     <section id="inicio" class="hero">
         <div class="container">
+            <!-- AUDIT FIX: título e texto reescritos para refletir o objetivo profissional do currículo (assessoria a profissionais e instituições de saúde), em vez de um enquadramento de direito do consumidor não confirmado -->
             <div class="hero-content reveal">
-                <h1>Seu direito à saúde e ao respeito como consumidor é inegociável.</h1>
-                <p>Especialista em combater abusos de planos de saúde, defender vítimas de erro médico e proteger consumidores contra práticas arbitrárias de grandes empresas em Feira de Santana e região.</p>
+                <h1>Segurança jurídica para quem cuida da saúde de outras pessoas.</h1>
+                <p>Assessoria jurídica preventiva e contenciosa para clínicas, consultórios, hospitais e profissionais da saúde, com foco em segurança jurídica, mitigação de riscos e atuação estratégica em processos judiciais e ético-disciplinares.</p>
 
-                <!-- CV UPDATE: adicionado serviço de assessoria preventiva a clínicas/profissionais de saúde, que é o foco principal do currículo -->
+                <!-- AUDIT FIX: bullets substituídos pelas atividades confirmadas no currículo -->
                 <ul class="hero-bullets">
                     <li>Assessoria jurídica preventiva para clínicas, hospitais e profissionais da saúde</li>
-                    <!-- ATENÇÃO: informação não confirmada no currículo -->
-                    <li>Liminares de urgência contra planos de saúde</li>
-                    <!-- ATENÇÃO: informação não confirmada no currículo -->
-                    <li>Indenizações por falhas na prestação de serviços</li>
+                    <li>Análise de sites e redes sociais conforme as normas éticas</li>
+                    <li>Acompanhamento diário do profissional em suas dúvidas e atividades</li>
                     <li>Atendimento presencial (Feira de Santana) e online para todo Brasil</li>
                 </ul>
 
@@ -910,7 +895,8 @@
             <div class="section-title reveal">
                 <div class="divider"></div>
                 <h2>Especialidades do Escritório</h2>
-                <p>Nossa atuação é profundamente focada e técnica. Lutamos para restabelecer a justiça em situações onde a assimetria entre as partes é grande (Paciente x Plano de Saúde / Consumidor x Grandes Corporações).</p>
+                <!-- AUDIT FIX: removida a menção a "Consumidor x Grandes Corporações", especialidade não confirmada no currículo -->
+                <p>Nossa atuação é profundamente focada e técnica, com foco em segurança jurídica e mitigação de riscos para profissionais, instituições e pacientes na área da saúde.</p>
             </div>
 
             <div class="areas-grid">
@@ -933,29 +919,21 @@
                     <div class="area-icon">🩺</div>
                     <h3>Assessoria para Profissionais e Instituições de Saúde</h3>
                     <p>Atuação preventiva e contenciosa para clínicas, consultórios, hospitais e profissionais da saúde, com foco em segurança jurídica e mitigação de riscos.</p>
+                    <!-- AUDIT ADDED: fonte → CV (itens que ainda não apareciam no site) -->
                     <ul>
                         <li>Elaboração e revisão de contratos médicos e termos de consentimento (TCLE)</li>
                         <li>Implementação da LGPD em clínicas e consultórios</li>
                         <li>Manifestação em sindicâncias perante Conselhos (CRM, CRO, COREN, CREFITO)</li>
                         <li>Defesa em Processos Ético-Profissionais</li>
                         <li>Responsabilidade civil médica e hospitalar</li>
+                        <li>Análise de sites e redes sociais conforme as normas éticas</li>
+                        <li>Acompanhamento diário do profissional em suas dúvidas e atividades</li>
                         <li>Treinamentos sobre boas práticas jurídicas no exercício da medicina</li>
                     </ul>
                 </div>
 
-                <!-- ATENÇÃO: informação não confirmada no currículo — especialidade em Direito do Consumidor não consta no currículo fornecido -->
-                <div class="area-card reveal" style="transition-delay: 0.2s;">
-                    <div class="area-icon">⚖️</div>
-                    <h3>Direito do Consumidor</h3>
-                    <p>Proteção integral contra práticas comerciais abusivas, falhas na prestação de serviço e danos ao patrimônio do cliente.</p>
-                    <ul>
-                        <li>Fraudes bancárias, Pix e cartões clonados</li>
-                        <li>Inscrição indevida no SPC/Serasa (Nome Negativado)</li>
-                        <li>Problemas com companhias aéreas (Voo cancelado, bagagem)</li>
-                        <li>Compras online não entregues ou com defeito</li>
-                        <li>Superendividamento e renegociação de dívidas</li>
-                    </ul>
-                </div>
+                <!-- AUDIT REMOVED: card "Direito do Consumidor" — especialidade não consta no currículo -->
+
             </div>
         </div>
     </section>
@@ -1006,8 +984,7 @@
                     <!-- CV UPDATE: bio reescrita com base no objetivo profissional e na experiência do currículo (nome completo incluído) -->
                     <p>Sou Paloma Barros Boaventura de Almeida, advogada especialista em Direito Médico, com atuação preventiva e contenciosa para clínicas, consultórios, hospitais e profissionais da saúde. Meu foco é oferecer segurança jurídica, mitigação de riscos e atuação estratégica em processos judiciais e ético-disciplinares.</p>
                     <p>Elaboro e reviso contratos médicos, termos de consentimento (TCLE) e regulamentos internos, implemento a LGPD em clínicas e consultórios e atuo na defesa de profissionais em sindicâncias e Processos Ético-Profissionais perante os Conselhos de Fiscalização (CRM, CRO, COREN, CREFITO).</p>
-                    <!-- ATENÇÃO: informação não confirmada no currículo -->
-                    <p>Também atuo no <strong>Direito do Consumidor</strong>, lutando contra a negativa fria de um plano de saúde ou os abusos de um banco — entendo que por trás de cada negativa de cirurgia ou fraude bancária existe uma vida aflita aguardando solução.</p>
+                    <!-- AUDIT REMOVED: parágrafo sobre Direito do Consumidor — especialidade não consta no currículo -->
 
                     <a href="https://www.instagram.com/apalomabarros/" target="_blank" rel="noopener noreferrer" class="social-link">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -1025,7 +1002,8 @@
             <div class="section-title reveal">
                 <div class="divider"></div>
                 <h2>Perguntas Frequentes</h2>
-                <p>Tire suas principais dúvidas sobre Direito Médico e Direito do Consumidor antes mesmo do primeiro contato.</p>
+                <!-- AUDIT FIX: removida a menção a "Direito do Consumidor", especialidade não confirmada no currículo -->
+                <p>Tire suas principais dúvidas sobre Direito Médico antes mesmo do primeiro contato.</p>
             </div>
             <div class="faq-groups">
                 <div class="faq-group reveal">
@@ -1043,17 +1021,9 @@
                         <p>Erro médico se caracteriza por negligência, imprudência ou imperícia do profissional que resulta em dano ao paciente. É essencial reunir prontuário, exames, laudos e receitas. Uma perícia técnica indicará se houve conduta inadequada e nexo causal com o dano sofrido.</p>
                     </details>
                 </div>
-                <!-- ATENÇÃO: informação não confirmada no currículo -->
+                <!-- AUDIT FIX: grupo "Direito do Consumidor" removido (Pix, SPC/Serasa) — especialidade não consta no currículo. A pergunta sobre atendimento presencial, que não é específica de nenhuma especialidade, foi mantida em um grupo próprio -->
                 <div class="faq-group reveal" style="transition-delay: 0.15s;">
-                    <h3>Direito do Consumidor</h3>
-                    <details class="faq-item">
-                        <summary>Fui vítima de fraude no Pix ou cartão clonado. Tenho direito a receber de volta?</summary>
-                        <p>Sim. O banco tem responsabilidade objetiva pela segurança das operações (Súmula 479 do STJ). Registre B.O., conteste imediatamente no banco e, se houver recusa ou demora, é possível ingressar com ação para restituição do valor e indenização por danos morais.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Meu nome foi negativado indevidamente no SPC/Serasa. O que posso fazer?</summary>
-                        <p>É possível pedir a retirada imediata do nome dos cadastros de inadimplentes e indenização por danos morais, que costuma variar entre R$ 5.000 e R$ 15.000 conforme o caso, desde que você não tenha outras negativações legítimas anteriores.</p>
-                    </details>
+                    <h3>Atendimento</h3>
                     <details class="faq-item">
                         <summary>Preciso ir presencialmente ao escritório em Feira de Santana?</summary>
                         <p>Não. Realizamos atendimento presencial em Feira de Santana/BA e também 100% online por videochamada e WhatsApp para clientes de todo o Brasil, com envio digital de documentos e assinatura eletrônica.</p>
