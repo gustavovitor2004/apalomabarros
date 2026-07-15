@@ -295,6 +295,11 @@
             color: var(--accent);
         }
 
+        /* CHANGE 3: highlights the nav link for the section currently in view */
+        .nav-links a.nav-active {
+            color: var(--accent);
+        }
+
         /* ==========================================================================
            HERO SECTION (Layout D - Sóbrio e Técnico)
            ========================================================================== */
@@ -545,14 +550,15 @@
             display: block;
         }
 
-        /* HOVER SLIDE ANIMATION — new: wrapper — photo centered by default, overflow hidden for the slide effect */
+        /* HOVER SLIDE ANIMATION — new: wrapper — photo centered by default */
+        /* CHANGE 2: overflow changed from hidden to visible so a tall text panel is never clipped */
         .advogada-wrapper {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 600px;
-            overflow: hidden;
+            overflow: visible;
         }
 
         /* HOVER SLIDE ANIMATION — new: photo, centered by default */
@@ -578,6 +584,7 @@
         }
 
         /* HOVER SLIDE ANIMATION — new: text panel, hidden behind the photo by default */
+        /* CHANGE 2: sizing reworked so all bio text fits without overflow or clipping */
         .advogada-texto {
             position: absolute;
             left: 50%;
@@ -586,12 +593,18 @@
             z-index: 1;
             opacity: 0;
             width: 100%;
-            max-width: 460px;
+            max-width: min(480px, calc(100vw - 60px));
+            min-width: 340px;
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border-radius: 16px;
-            padding: 40px 44px;
+            padding: 36px 40px;
+            box-sizing: border-box;
+            overflow: visible;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.10);
             border-left: 3px solid var(--accent);
             transition: opacity 0.5s ease 0.15s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
@@ -605,15 +618,33 @@
             pointer-events: auto;
         }
 
+        /* CHANGE 2: responsive font sizes so headings/paragraphs never force overflow */
         .advogada-texto h2 {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            line-height: 1.2;
+            margin-bottom: 6px;
+            white-space: normal;
+        }
+
+        .advogada-texto h4 {
+            font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+            line-height: 1.4;
+            margin-bottom: 16px;
         }
 
         .advogada-texto p {
-            margin-bottom: 16px;
-            font-size: 1.05rem;
+            margin-bottom: 14px;
+            font-size: clamp(0.82rem, 1.4vw, 0.92rem);
+            line-height: 1.7;
             color: var(--text-muted);
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
+        .advogada-texto .social-link {
+            font-size: clamp(0.8rem, 1.3vw, 0.88rem);
+            display: inline-flex;
+            margin-top: 4px;
         }
 
         .social-link {
@@ -730,6 +761,7 @@
                 position: static;
                 width: 100%;
                 max-width: 100%;
+                min-width: 0;
                 transform: none !important;
                 opacity: 1 !important;
                 pointer-events: auto !important;
@@ -742,73 +774,7 @@
 <body>
     <style>
 
-        /* ==========================================================================
-           DEPOIMENTOS (Testimonials)
-           ========================================================================== */
-        .testimonials { background-color: var(--bg); }
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        .testimonial-card {
-            background: #fff;
-            padding: 32px 28px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            border-top: 4px solid var(--accent);
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition);
-        }
-        .testimonial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-        .testimonial-stars {
-            color: var(--accent);
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            margin-bottom: 16px;
-        }
-        .testimonial-text {
-            font-style: italic;
-            color: var(--text);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 24px;
-            flex: 1;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            border-top: 1px solid #eee;
-            padding-top: 16px;
-        }
-        .testimonial-avatar {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-title);
-            font-weight: 700;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-        .testimonial-name {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 0.95rem;
-        }
-        .testimonial-role {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
+        /* CHANGE 1: testimonials section removed — .testimonials, .testimonial-* CSS removed with it */
 
         /* ==========================================================================
            FAQ
@@ -868,28 +834,6 @@
            ========================================================================== */
         @media (max-width: 900px) {
             .faq-groups { grid-template-columns: 1fr; gap: 30px; }
-
-            /* Carrossel horizontal dos depoimentos */
-            .testimonials-grid {
-                grid-template-columns: none;
-                grid-auto-flow: column;
-                grid-auto-columns: 85%;
-                gap: 16px;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                padding: 8px 4px 24px 4px;
-                margin: 0 -24px;
-                padding-left: 24px;
-                padding-right: 24px;
-                scrollbar-width: thin;
-            }
-            .testimonial-card {
-                scroll-snap-align: start;
-            }
-        }
-        @media (max-width: 560px) {
-            .testimonials-grid { grid-auto-columns: 90%; }
         }
     </style>
 
@@ -1011,53 +955,7 @@
         </div>
     </section>
 
-    <!-- DEPOIMENTOS -->
-    <section id="depoimentos" class="testimonials section-padding">
-        <div class="container">
-            <div class="section-title reveal">
-                <div class="divider"></div>
-                <h2>O que dizem nossos clientes</h2>
-                <p>Relatos reais de pessoas que reconquistaram seus direitos com atendimento técnico e humanizado.</p>
-            </div>
-            <div class="testimonials-grid">
-                <article class="testimonial-card reveal">
-                    <div class="testimonial-stars" aria-label="Avaliação 5 de 5">★★★★★</div>
-                    <p class="testimonial-text">"Meu plano negou a cirurgia da minha filha alegando carência. Em menos de 48 horas a Dra. Paloma conseguiu a liminar e a cirurgia foi realizada. Nunca vou esquecer o cuidado e a rapidez."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" aria-hidden="true">MR</div>
-                        <div>
-                            <div class="testimonial-name">Mariana R.</div>
-                            <div class="testimonial-role">Feira de Santana, BA</div>
-                        </div>
-                    </div>
-                </article>
-                <!-- ATENÇÃO: informação não confirmada no currículo — depoimento de Direito do Consumidor -->
-                <article class="testimonial-card reveal" style="transition-delay: 0.1s;">
-                    <div class="testimonial-stars" aria-label="Avaliação 5 de 5">★★★★★</div>
-                    <p class="testimonial-text">"Fui vítima de um Pix fraudulento de R$ 8 mil e o banco se recusava a devolver. A Dra. Paloma entrou com a ação, ganhamos o valor de volta e ainda uma indenização por danos morais."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" aria-hidden="true">CS</div>
-                        <div>
-                            <div class="testimonial-name">Carlos S.</div>
-                            <div class="testimonial-role">Salvador, BA</div>
-                        </div>
-                    </div>
-                </article>
-                <article class="testimonial-card reveal" style="transition-delay: 0.2s;">
-                    <div class="testimonial-stars" aria-label="Avaliação 5 de 5">★★★★★</div>
-                    <p class="testimonial-text">"Minha mãe precisava de home care e o plano insistia em negar. A Dra. explicou tudo com clareza, conseguiu a autorização judicial e acompanhou o caso até o fim. Profissional atenciosa e combativa."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" aria-hidden="true">JL</div>
-                        <div>
-                            <div class="testimonial-name">Juliana L.</div>
-                            <div class="testimonial-role">Atendimento Online</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
+    <!-- CHANGE 1: testimonials section removed -->
     <section id="metodo" class="how-it-works section-padding">
         <div class="container">
             <div class="section-title reveal">
@@ -1207,6 +1105,62 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // CHANGE 3: smooth scroll na navbar com offset (compensa a altura do header fixo) e easing customizado
+        function smoothScrollTo(targetY, duration = 750) {
+            const startY = window.pageYOffset;
+            const distance = targetY - startY;
+            let startTime = null;
+
+            function easeInOutCubic(t) {
+                return t < 0.5
+                    ? 4 * t * t * t
+                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function step(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+                if (progress < 1) requestAnimationFrame(step);
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href === '') return;
+
+                const target = document.querySelector(href);
+                if (!target) return;
+
+                e.preventDefault();
+
+                const navbarHeight = document.querySelector('header')?.offsetHeight || 80;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 16;
+
+                smoothScrollTo(targetPosition, 750);
+            });
+        });
+
+        // CHANGE 3: destaca na navbar o link da seção atualmente visível
+        const scrollSections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove('nav-active'));
+                    const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+                    if (activeLink) activeLink.classList.add('nav-active');
+                }
+            });
+        }, { threshold: 0.4 });
+
+        scrollSections.forEach(section => navObserver.observe(section));
     </script>
 </body>
 </html>
